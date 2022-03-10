@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top up</title>
+  <link rel="stylesheet" href="../css/topup.css">
+  <link href="https://fonts.googleapis.com/css?family=Lexend+Giga&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="section-left"><img src="../images/logo.png" alt="logo sito" class="logo"></div>
+        <div class="topup-section">    
+            <div class="topup-container">
+            <h2 style="color: #38adf5;"><b>Top up your account balance here!</b></h2>
+            <form action="/topup" method="POST">
+                <input name="amount" step= "0.01" type="number" placeholder="amount Ex. 1500,00" id="amount" min= "1" oninput="refreshBalance(amount.value)">
+                <div class="lower-form">
+                <p>Select your payament method to recharge your balance</p>
+                <select id="selection" class= "selection" name="selection">
+                        <% for(var i=0; i<cart.length; i++) {%>
+                          <option value="<%= cart[i] %>"><%= cart[i] %></option>
+                          <% } %>
+                          <option id="versamento" value="Versamento" >Deposit</option>
+                </select>
+                <button type="submit" class="button" value="Submit">Top up</button>
+                </div>
+            </form>
+                <div class="lower-section">
+                    <p><b>No card or bank account linked to your account? You can do it in your personal page</b> </p>
+                    <a id="botbut"href="/myaccount/mypayaments"> Click here!</a>
+                </div>
+            </div>
+        </div>
+        <div class="section-right"><a href="/myaccount/mypage"><button class="button">Home</button></a></div>
+    </div>
+
+<script>
+       document.getElementById("amount").onblur =function (){    
+                        this.value = parseFloat(this.value.replace(/,/g, ""))
+                        .toFixed(2)
+                        .toString()
+                        .replace(/\B(?=(\d{9})+(?!\d))/g, ",");
+                  }
+
+</script>
+</body>
+</html>

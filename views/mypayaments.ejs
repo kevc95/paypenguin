@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My payaments method</title>
+  <link rel="stylesheet" href="../css/mypayaments.css">
+</head>
+<body>
+  
+  <div class="container">
+    <header>
+      <nav>
+        <a href="#" class="no-desktop">
+          <img src="../images/iconfinder_th-menu-outline_216423.png" alt="menu" class="menu" id="menu">
+        </a>
+
+          <ul class="show-desktop no-mobile" id="nav">
+          <li id='exit' class="exit-btn no-desktop"><img src="../images/cancel.svg" alt="exit menu"></li>
+          <li><a href="/myaccount/mypage">Home</a></li>
+          <li><a href="/myaccount/sendmoney">Send money</a></li>
+          <li><a href="/myaccount/receivemoney">Receive money</a></li>
+          <li><a href="/myaccount/history">History</a></li>
+          <li><a href="/logout">Exit</a></li>
+          </ul>
+      </nav>
+      <img src="../images/logo.png" alt="Logo sito" class="logo logo-top">
+      <a href="/myaccount/profile" class="settings-wheel">
+          <img src="../images/settings-wheel-icon-13.jpg" alt="menu" class="menu" id="menu">
+        </a>
+      
+    </header>
+
+  </div>
+
+
+  <div class="main-container">
+    <div class="container">
+      <h2>Your payament methods</h2>
+      <div class="blocks">
+        <div class="first-column">
+        <div class="payaments-method">
+          <div class= "methods" style="overflow: auto">
+            <h3>My payament methods</h3>
+            <p>Choose your preferred payament method</p>
+            <form method="POST" action="/setmethod">            
+              <% for(var i=0; i<results.length; i++) {%>
+                  <div class="row"><b><%= results[i].metodo_pagamento %>: **** **** **** <%= codice[i]%></b>
+                  <input type="checkbox" value= "<%= results[i].metodo_pagamento %>" name="preferito" id="<%= i %>" onclick="disable(this)" class="checkbox">
+                </div>
+                <hr>
+                <% } %>
+              </div>
+            <button type="submit" class="button" id="button" disabled >Confirm</button>
+            </form>
+        </div>
+      </div>
+        <div class="second-column">
+        <div class="settings">
+            <h3>Add new payament method</h3>
+            <div class="links">
+                <a href="/myaccount/linkcard">Link a credit card</a>
+                <a href="/myaccount/linkbankacc">Link a bank account</a>
+            </div>
+        </div>
+            
+          </div>
+        </div>
+        <div class="vuoto">
+        </div> 
+  </div>
+</div>
+
+
+  <footer>
+    <div class="footer-container">
+      <div class="container">
+        <img src="../images/logo.png" alt="Logo sito" class="logo">
+        <dl>
+         <dt>Autori:</dt>
+         <dd>Kevin Cusano</dd>
+         <dd>Vincenzo Di Marco</dd>
+        </dl>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+
+    
+    var menu = document.getElementById('menu');
+    var nav = document.getElementById('nav');
+    var exit = document.getElementById('exit');
+
+    menu.addEventListener('click', function(e){
+      nav.classList.toggle('no-mobile');
+      e.preventDefault();
+    });
+
+    exit.addEventListener('click', function(e){
+      nav.classList.add('no-mobile');
+      e.preventDefault();
+    });
+
+    function disable(ckType){
+      var ckName = document.getElementsByName(ckType.name);
+      var checked = document.getElementById(ckType.id);
+
+     
+      
+
+      if(checked.checked){
+        document.getElementById('button').disabled= false;
+        for(var i=0; i<ckName.length; i++){
+          if(!ckName[i].checked){
+            ckName[i].disabled = true;
+          }else{
+
+            ckName[i].disabled = false;
+          }
+        }
+      }else{
+        document.getElementById('button').disabled= true;
+        for(var i=0; i<ckName.length; i++){
+         ckName[i].disabled = false; 
+        }
+      }
+
+  
+
+
+  }
+
+
+  </script>
+</body>
+</html>

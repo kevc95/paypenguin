@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link your bank account</title>
+  <link rel="stylesheet" href="../css/linkbank.css">
+  <link href="https://fonts.googleapis.com/css?family=Lexend+Giga&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="section-left"><img style="height: 70px" src="../images/logo.png" alt="logo sito"></div>
+        <div class="link-section">    
+            <div class="link-container">
+            <h2>Link your bank account here</h2>
+            <p>Accountholder: </p>
+            <form method="POST" action="setbankacc">
+                <input type="text" name="bankacc" placeholder="Bank account number" id="bank">
+                <select name="bankname">
+                    <option value="Unicredit">Unicredit</option>
+                    <option value="Monte Paschi di Siena">Monte Paschi di Siena</option>
+                 </select>
+                <button type="submit" class="button">Confirm and link </button>
+            </form>
+            </div>
+        </div>
+        <div class="section-right"><a href="/myaccount/mypage"><button class="button">Home</button></a></div>
+    </div>
+</body>
+</html>

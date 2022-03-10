@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="../css/profile.css">
+  <link href="https://fonts.googleapis.com/css?family=Lexend+Peta&display=swap" rel="stylesheet">
+</head>
+<body>
+ 
+  <div class="container">
+    <header>
+      <nav>
+        <a href="#" class="no-desktop">
+          <img src="../images/iconfinder_th-menu-outline_216423.png" alt="menu" class="menu" id="menu">
+        </a>
+          <ul class="show-desktop no-mobile" id="nav">
+              <li id='exit' class="exit-btn no-desktop"><img src="../images/cancel.svg" alt="exit menu"></li>
+              <li><a href="/myaccount/mypage">Home</a></li>
+              <li><a href="/myaccount/sendmoney">Send money</a></li>
+              <li><a href="/myaccount/receivemoney">Receive money</a></li>
+              <li><a href="/myaccount/history">History</a></li>
+              <li><a href="/logout">Exit</a></li>
+        </ul>
+      </nav>
+      <img src="../images/logo.png" alt="Logo sito" class="logo logo-top">
+      <a href="/myaccount/profile" class="settings-wheel"><img src="../images/settings-wheel-icon-13.jpg" alt="menu" class="menu"></a>
+    </header>
+  </div>
+
+  <div class="main-container">
+    <div class="container">
+      <div class="blocks">
+        <div class="first-column">
+          <div class='balance'>
+            
+              <h3 style="width: 100%;">My personal infos</h3>
+              <ul class="infos" style="overflow: hidden;">
+                  <li><b>First name:</b> <%= data.nome %></li>
+                  <li><b>Last Name:</b> <%= data.cognome %></li>
+                  <li><b>E-mail address:</b> <%= data.ref_email %></li>
+                  <li><b>Phone number:</b> <%= data.cellulare %> </li>
+                  <li><b>Address:</b> <%= data.indirizzo %></li>
+                  <li><b>Nationality:</b> <%= data.stato %></li>
+              </ul>
+            
+             
+            </div>
+            
+          </div>
+          <div class="second-column">  
+            <div class='payaments'>
+                <div class="row">
+                <a href="/myaccount/changepsw">Change your password</a>
+                <a href="/myaccount/changedata">Change your personal infos</a>
+                </div>
+                <div class="row-2">
+                <a href="/myaccount/requests">Requests</a>
+                </div>
+              </div>
+            <div class='function'>
+              <div class="row">
+                <a href="/myaccount/subscription">Subscriptions</a>
+                
+              </div>
+              <div class="row-3">
+                <img style="height: 70px; width: 30px" src="../images/mobile-icon.png" alt="mobile icon" class="icon">
+                <img style="height: 40px; width: 60px" src="../images/mail-icon.png" alt="mail icon" class="icon">
+              </div>
+              </div> 
+            </div>
+
+      </div>  
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="container">
+        <img style="height: 70px" src="../images/logo.png" alt="Logo sito" class="logo">
+        <dl>
+         <dt>Autori:</dt>
+         <dd>Kevin Cusano</dd>
+         <dd>Vincenzo Di Marco</dd>
+        </dl>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+
+    var menu = document.getElementById('menu');
+    var nav = document.getElementById('nav');
+    var exit = document.getElementById('exit');
+
+    menu.addEventListener('click', function(e){
+      nav.classList.toggle('no-mobile');
+      e.preventDefault();
+    });
+
+    exit.addEventListener('click', function(e){
+      nav.classList.add('no-mobile');
+      e.preventDefault();
+    });
+
+  </script>
+</body>
+</html>

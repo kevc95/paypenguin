@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Alegreya&display=swap');
+
+
+body{
+    
+    padding: 0 8% 30px;
+    
+}
+
+.container{
+    height:auto;
+
+    min-height:100%;
+}
+
+header{
+    
+    
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    
+}
+header a{
+   
+    float: right;
+    
+}
+
+
+.login-section{
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-section button{
+    height: 43px;
+    background-color: #38adf5;
+    display: block;
+    color: white;
+    border-radius: 20px;
+    width: 100%;
+    
+}
+
+hr{
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+}
+
+p{
+    margin-top: 30px;
+    padding: 1em;
+    text-align: center;
+    text-justify: inter-word;
+}
+input{
+    margin-bottom: 20px;
+    height: 33px;
+    text-align: center;
+    display: block;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.login-section input{
+    display: block;
+    width: 100%
+}
+
+.button {
+    width: 40%;
+    height: 20px;
+    background-color: #38adf5;
+    text-align: center;
+    display: block;
+    color: white;
+    border-radius: 20px;
+    padding: .5em;
+    text-decoration: none;
+    margin: 3% auto 7%;
+  }
+
+.new-container{
+    display: block;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px){
+
+
+    body {
+        border: 3px ridge rgba(164,164,164,0.22);
+        border-radius: 34px;
+        width: 250px;
+        max-width: 250px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        
+    }
+    
+    header{
+        width: 100%;
+        padding: 1em 0;
+        
+        
+    }
+
+    
+
+
+}

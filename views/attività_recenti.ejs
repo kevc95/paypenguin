@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recent activity</title>
+  <link rel="stylesheet" href="../css/attività_recenti.css">
+  <link href="https://fonts.googleapis.com/css?family=Lexend+Peta&display=swap" rel="stylesheet">
+</head>
+<body>
+ 
+  <div class="container">
+    <header>
+      <nav>
+        <a href="#" class="no-desktop">
+          <img src="../images/iconfinder_th-menu-outline_216423.png" alt="menu" class="menu" id="menu">
+        </a>
+          <ul class="show-desktop no-mobile" id="nav">
+              <li id='exit' class="exit-btn no-desktop"><img src="../images/cancel.svg" alt="exit menu"></li>
+              <li><a href="/myaccount/mypage">Home</a></li>
+              <li><a href="/myaccount/sendmoney">Send money</a></li>
+              <li><a href="/myaccount/receivemoney">Receive money</a></li>
+              <li><a href="/myaccount/history">History</a></li>
+              <li><a href="/logout">Exit</a></li>
+        </ul>
+      </nav>
+      <img src="../images/logo.png" alt="Logo sito" class="logo logo-top">
+      <a href="/myaccount/profile" class="settings-wheel"><img src="../images/settings-wheel-icon-13.jpg" alt="menu" class="menu"></a>
+    </header>
+  </div>
+
+    <div class="main-container">
+    <div class="central-section">
+        <div class="upper-section">
+            <form method="POST" action="gethistory">
+             <div class="date-container"> 
+            Start date:     <input class="date" type="date" name="datetimestart" value="<%= date%>">
+            End date:     <input class="date" type="date" name="datetimefine" value="<%= date2%>">
+          </div>
+          <select class="selection" onchange="myFunction()" id="selection">
+            <option value="">Select a filter</option>
+            <option value="Sent money">Sent</option>
+            <option value="Received money">Received</option>
+            <option value="Shop payament">Payaments to sites</option>
+            <option value="Instalment">Instalment</option>
+            <option value="Subscription">Subscription</option>
+        </select>
+        </div>
+        <div class="lower-section">
+          <table style="width: 100%; font-size: 0.8em;" id="recent">
+            <thead><tr><th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th>
+                 <th></th></tr>
+            </thead>
+          <tbody >
+            <p style="visibility: <%= testo %>;"><%= descrizionenull %></p>
+            <% for(var i=0; i < resultstra.length; i++) {%>
+              <tr><td><%= resultstra[i].data.toString().substr(4, 12) %></td>
+              <td><%= resultstra[i].ref_email2 %></td>
+              <td><%= resultstra[i].descrizione %></td>
+              <td><%= resultstra[i].ammontare.toFixed(2) %> €</td></tr>
+            
+              
+              <% } %>
+              
+          </tbody>
+        </table>
+
+        </div>
+        <button type="submit" class="button">History</button>
+      </form>
+    </div>
+  </div>
+	
+
+  <footer>
+    <div class="footer-container">
+      <div class="container">
+        <img src="../images/logo.png" alt="Logo sito" class="logo">
+        <dl>
+         <dt>Autori:</dt>
+         <dd>Kevin Cusano</dd>
+         <dd>Vincenzo Di Marco</dd>
+        </dl>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+
+    var menu = document.getElementById('menu');
+    var nav = document.getElementById('nav');
+    var exit = document.getElementById('exit');
+
+    menu.addEventListener('click', function(e){
+      nav.classList.toggle('no-mobile');
+      e.preventDefault();
+    });
+
+    exit.addEventListener('click', function(e){
+      nav.classList.add('no-mobile');
+      e.preventDefault();
+    });
+
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("selection");
+  filter = input.value;
+  table = document.getElementById("recent");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      
+      if (txtValue.indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+
+  </script>
+</body>
+</html>

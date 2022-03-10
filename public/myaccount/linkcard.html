@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link your credit card</title>
+  <link rel="stylesheet" href="../css/linkcard.css">
+  <link href="https://fonts.googleapis.com/css?family=Lexend+Giga&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="section-left"><img style="height: 70px" src="../images/logo.png" alt="logo sito"></div>
+        <div class="link-section">    
+            <div class="link-container">
+            <h2>Link your credit card!</h2>
+            <form method="POST" action="/setcard">
+                <input type="text" name="codice" placeholder="Credit card number" id="card">
+                <input type="text" name="scadenza" placeholder="expiration mm/aa" id="deadline">
+                <input type="password" name="cvv" placeholder="Security code" id="cvv">
+                <label for="cardtype">Choose your card</label>
+                <select name="tipocarta" id="cardtype">
+                        <option value="Visa">Visa</option>
+                        <option value="Mastercard">Mastercard</option>
+                </select>
+                <button type="submit" class="button">Confirm and link</button>
+            </form>
+            </div>
+        </div>
+        <div class="section-right"><a href="/myaccount/mypage"><button class="button">Home</button></a></div>
+    </div>
+</body>
+</html>

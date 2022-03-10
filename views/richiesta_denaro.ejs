@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Request money</title>
+        <link rel="stylesheet" href="../css/richiesta_denaro.css">
+        <link href="https://fonts.googleapis.com/css?family=Lexend+Peta&display=swap" rel="stylesheet">
+       
+</head>
+
+
+<body>
+        <div class="container">
+                <header>
+                  <nav>
+                    <a href="#" class="no-desktop">
+                      <img src="../images/iconfinder_th-menu-outline_216423.png" alt="menu" class="menu" id="menu">
+                    </a>
+            
+                      <ul class="show-desktop no-mobile" id="nav">
+                      <li id='exit' class="exit-btn no-desktop"><img src="../images/cancel.svg" alt="exit menu"></li>
+                      <li><a href="/myaccount/mypage">Home</a></li>
+                      <li><a href="/myaccount/sendmoney">Send money</a></li>
+                      <li><a href="/myaccount/receivemoney">Receive money</a></li>
+                      <li><a href="/myaccount/history">History</a></li>
+                      <li><a href="/logout">Exit</a></li>
+                    </ul>
+                  </nav>
+                  <img src="../images/logo.png" alt="Logo sito" class="logo logo-top">
+                  <a href="/myaccount/profile" class="settings-wheel"><img src="../images/settings-wheel-icon-13.jpg" alt="menu" class="menu"></a>
+                </header>
+              </div>
+              <div class="container-body">
+            <div class="central-section">
+                <div class="upper-side">
+                    <p id="left"><b>Request money</b></p>
+                    <p id="right">Balance: <b><%= saldo %> € </b></p>
+                   
+                </div>
+                <div class="lower-side">        
+                   <form method="POST" action="/receive">
+                        <input type="text" name="mitt" placeholder="e-mail" id="e-mail">
+                        <br>
+                        <input name="amount" step= "0.01" type="number" placeholder="amount Ex. 1500,00" id="amount" min= "1" oninput="refreshBalance(amount.value)">
+                        <button type="submit" class="button" >Send</button>
+                    </form>
+
+                </div>
+                <p class="text">Don't worry if the recipient is not registered, we will provide a registration link and he will see the request in his account!</p>
+            </div>
+            </div>
+            <footer>
+                <div class="footer-container">
+                  <div class="container">
+                    <img style="height: 70px;" src="../images/logo.png" alt="Logo sito" class="logo">
+                    <dl>
+                     <dt>Autori:</dt>
+                     <dd>Kevin Cusano</dd>
+                     <dd>Vincenzo Di Marco</dd>
+                    </dl>
+            
+                  </div>
+            
+                </div>
+              </footer>
+              <script>
+
+                  var menu = document.getElementById('menu');
+                  var nav = document.getElementById('nav');
+                  var exit = document.getElementById('exit');
+              
+                  menu.addEventListener('click', function(e){
+                    nav.classList.toggle('no-mobile');
+                    e.preventDefault();
+                  });
+              
+                  exit.addEventListener('click', function(e){
+                    nav.classList.add('no-mobile');
+                    e.preventDefault();
+                  });
+
+                  document.getElementById("amount").onblur =function (){    
+                        this.value = parseFloat(this.value.replace(/,/g, ""))
+                        .toFixed(2)
+                        .toString()
+                        .replace(/\B(?=(\d{9})+(?!\d))/g, ",");
+                  }
+              
+                </script>
+              
+
+        
+
+</body>
+
+</html>

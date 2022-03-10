@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cancel subscription</title>
+  <link rel="stylesheet" href="../css/cancel_subscription.css">
+  <link href="https://fonts.googleapis.com/css?family=Lexend+Peta&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <div class="container">
+        <header>
+          <nav>
+            <a href="#" class="no-desktop">
+              <img src="../images/iconfinder_th-menu-outline_216423.png" alt="menu" class="menu" id="menu">
+            </a>
+              <ul class="show-desktop no-mobile" id="nav">
+                  <li id='exit' class="exit-btn no-desktop"><img src="../images/cancel.svg" alt="exit menu"></li>
+                  <li><a href="/myaccount/mypage">Home</a></li>
+                  <li><a href="/myaccount/sendmoney">Send money</a></li>
+                  <li><a href="/myaccount/receivemoney">Receive money</a></li>
+                  <li><a href="/myaccount/history">History</a></li>
+                  <li><a href="/logout">Exit</a></li>
+            </ul>
+          </nav>
+          <img src="../images/logo.png" alt="Logo sito" class="logo logo-top">
+          <a href="/myaccount/profile" class="settings-wheel"><img src="../images/settings-wheel-icon-13.jpg" alt="menu" class="menu"></a>
+        </header>
+      </div>    
+    
+      <div class="main-container">
+        <div class="container">
+        <h1>Subscriptions</h1>
+        
+        <div class="requests">
+            <h3>My active subscription</h3>
+        
+            <div class="table-my-requests" style="overflow: auto; height: 70%;">
+                <table style="width: 100%; font-size: 0.9em;">
+                    <thead><tr><th></th>
+                         <th></th>
+                         <th></th>
+                         <th></th>
+                         <th></th></tr>
+                    </thead>
+                  <tbody >
+                    <p style="visibility: <%= testo %>;"><%= descrizionenull %></p>
+                    <form method="POST" action="/subscription/cancel" autocomplete="off" name="cancelForm">
+                    <% for(var i=0; i < resultstra.length; i++) {%>
+                      <tr><td><%= resultstra[i].data.toString().substr(4, 12) %></td>
+                        <td><%= resultstra[i].ref_email2 %></td>
+                        <td><%= resultstra[i].descrizione %></td>
+                        <td><%= resultstra[i].ammontare.toFixed(2) %> €</td>
+                        <td> Cancel<input type="checkbox" name="checkboxCancel" value="<%= resultstra[i].id %>" id="checkboxCancel" class="button" onclick="modalfunction()"></td></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <% } %>
+                    </form>
+                  </tbody>
+                </table>
+              </div>
+        </div>
+        </div>    
+    </div>
+          
+        
+        <div id="myModalCancel" class="modal">
+
+            <div class="modal-content">
+              <div class="modal-header">
+                <span id="span3" class="close" onclick="nomodalfunction()">&times;</span>
+                <h2>Are you sure?</h2>
+              </div>
+              <div class="modal-body">
+                  
+                        <button type="submit" class="button" id="yesCancel">Yes</button>
+                        <button type="button" id="nobuttoncancel" class="button" onclick="nomodalfunction()">No</button>  
+                  
+              </div>
+            </div> 
+          </div>
+
+
+    
+    <footer>
+        <div class="footer-container">
+          <div class="container-bottom">
+            <img src="../images/logo.png" alt="Logo sito" class="logo">
+            <dl>
+             <dt>Autori:</dt>
+             <dd>Kevin Cusano</dd>
+             <dd>Vincenzo Di Marco</dd>
+            </dl>
+    
+          </div>
+    
+        </div>
+      </footer>
+    
+      <script>
+    
+        var menu = document.getElementById('menu');
+        var nav = document.getElementById('nav');
+        var exit = document.getElementById('exit');
+    
+        menu.addEventListener('click', function(e){
+          nav.classList.toggle('no-mobile');
+          e.preventDefault();
+        });
+    
+        exit.addEventListener('click', function(e){
+          nav.classList.add('no-mobile');
+          e.preventDefault();
+        });
+
+    var span = document.getElementsByClassName("close");
+
+    var cancelButton = document.getElementById('cancelButton')
+    
+    var modalcancel = document.getElementById("myModalCancel");
+
+    var noButtonCancel = document.getElementById("nobuttoncancel");
+
+    var submitForm = document.getElementById("submitForm");
+
+    var yesCancel = document.getElementById("yesCancel");
+
+    var checkboxCancel = document.getElementsByName("checkboxCancel");
+    
+    
+
+    
+    
+    yesCancel.onclick = function(){
+      document.cancelForm.submit();
+    }
+
+
+    span[0].onclick = function(){
+      modalcancel.style.display = "none";
+      for(var i=0; i<checkboxCancel.length; i++){
+          if(checkboxCancel[i].checked){
+            checkboxCancel[i].checked = false;
+           }
+        }
+    }
+
+    window.onclick = function(event) {
+    if (event.target == modal || event.target == modalno || event.target == modalcancel) {
+        modalcancel.style.display="none";
+        for(var i=0; i<checkboxCancel.length; i++){
+          if(checkboxCancel[i].checked){
+            checkboxCancel[i].checked = false;
+           }
+        
+        }
+    }
+  }
+
+    function checkedFalse(){
+      this.checked = false;
+    }
+
+
+    noButtonCancel.onclick = function(){
+      modalcancel.style.display = "none";
+      for(var i=0; i<checkboxCancel.length; i++){
+          if(checkboxCancel[i].checked){
+            checkboxCancel[i].checked = false;
+           }
+        
+        }
+    }
+
+     function nomodalfunction(){
+      modalcancel.style.display = "none";
+    }
+
+    function modalfunction(){
+      modalcancel.style.display = "block";
+    }
+
+
+
+      </script>
+    </body>
+    </html>
+

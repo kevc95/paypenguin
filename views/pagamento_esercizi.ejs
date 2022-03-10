@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Pay business site</title>
+        <link rel="stylesheet" href="../css/pagamento_esercizi.css">
+        <link href="https://fonts.googleapis.com/css?family=Lexend+Peta&display=swap" rel="stylesheet">
+       
+</head>
+
+
+<body>
+        <div class="container">
+            <header>
+                <nav>
+                  <a href="#" class="no-desktop">
+                    <img src="../images/iconfinder_th-menu-outline_216423.png" alt="menu" class="menu" id="menu">
+                  </a>
+                    <ul class="show-desktop no-mobile" id="nav">
+                        <li id='exit' class="exit-btn no-desktop"><img src="../images/cancel.svg" alt="exit menu"></li>
+                        <li><a href="/myaccount/mypage">Home</a></li>
+                        <li><a href="/myaccount/sendmoney">Send money</a></li>
+                        <li><a href="/myaccount/receivemoney">Receive money</a></li>
+                        <li><a href="/myaccount/history">History</a></li>
+                        <li><a href="/logout">Exit</a></li>
+                  </ul>
+                </nav>
+                <img src="../images/logo.png" alt="Logo sito" class="logo logo-top">
+                <a href="/myaccount/profile" class="settings-wheel"><img src="../images/settings-wheel-icon-13.jpg" alt="menu" class="menu"></a>
+              </header>
+        </div>  
+          <div class="container-body">  
+            <div class="central-section">
+              
+                    <p><b>Payaments for online business</b></p>
+                    <form method="POST" autocomplete ="off" action="/myaccount/payshop">
+                        <input type="text" name="esercizio" placeholder="site name" id="e-mail" pattern="[a-zA-Z0-9\S* ]{3,40}">
+                        <input step= "0.01" type= "number" placeholder= "amount Ex. 1500,00" name= "amount" min= "1" id="amount" oninput="refreshBalance(amount.value)">
+                        <select name="selection" id="selection" class= "selection">
+                            <% for(var i=0; i<cart.length; i++) {%>
+                                <option value="<%= cart[i] %>"><%= cart[i] %></option>
+                                <% } %>
+                                <option id="saldo" value="saldo" >Account balance</option>
+                        </select>
+                        <br>
+                        <input type="checkbox" name="periodico" id="pagamento_periodico" value="true">
+                        <label for="pagamento periodico">Periodic Payament</label>
+                          <div class="hidden" id="hidden">
+                            <input type="date" name="start" placeholder="start date" id="date" min="">
+                            <input type="text" name="rate" placeholder="fee number (0 for subscription)" id="fee">
+                          </div>
+                        <button type="submit" class="button" >Request</button>
+                    </form>
+
+               
+            </div>
+            
+            </div>
+            <footer>
+                <div class="footer-container">
+                  <div class="container">
+                    <img style="height: 70px" src="../images/logo.png" alt="Logo sito" class="logo-footer">
+                    <dl>
+                     <dt>Autori:</dt>
+                     <dd>Kevin Cusano</dd>
+                     <dd>Vincenzo Di Marco</dd>
+                    </dl>
+            
+                  </div>
+            
+                </div>
+              </footer>
+
+              <script>
+
+                  var menu = document.getElementById('menu');
+                  var nav = document.getElementById('nav');
+                  var exit = document.getElementById('exit');
+                  var pagamento = document.getElementById('pagamento_periodico');
+                  var data = document.getElementById('mydate');
+              
+                  menu.addEventListener('click', function(e){
+                    nav.classList.toggle('no-mobile');
+                    e.preventDefault();
+                  });
+              
+                  exit.addEventListener('click', function(e){
+                    nav.classList.add('no-mobile');
+                    e.preventDefault();
+                  });
+
+                  pagamento.addEventListener('click', function(e){
+                    hidden.classList.toggle('hidden');
+                  })
+
+                  document.getElementById("amount").onblur =function (){    
+                        this.value = parseFloat(this.value.replace(/,/g, ""))
+                        .toFixed(2)
+                        .toString()
+                        .replace(/\B(?=(\d{9})+(?!\d))/g, ",");
+                  }
+                  
+                </script>
+            
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Change information</title>
+        <link rel="stylesheet" href="../css/cambio_dati.css">
+        <link href="https://fonts.googleapis.com/css?family=Lexend+Peta&display=swap" rel="stylesheet">
+      
+</head>
+
+<body>
+        <div class="container">
+                <div class="section-left"><img style="height: 70px" src="../images/logo.png" alt="logo sito"></div>
+                <div class="cambio_dati-section">    
+                    <div class="cambio_dati-container">
+                    <h2>Change your personal information</h2>
+                    <p>Here you can correct mistakes made during registration</p>
+                    <form method="POST" action="setdata">
+                        <br>
+                        <input type="text" name="firstname" placeholder="First name" id="nome" pattern="[a-zA-Z ]{3,15}">
+                        <br>
+                        <input type="text" name="lastname" placeholder="Last name" id="cognome" pattern="[a-zA-Z ]{3,15}">
+                        <button type="submit" class="button">Confirm</button>
+                    </form>
+                    </div>
+                </div>
+                <div class="section-right"><a href="/myaccount/mypage"><button class="button">Home</button></a></div>
+            </div>
+
+</body>

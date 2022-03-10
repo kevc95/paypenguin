@@ -1,0 +1,166 @@
+html,body {
+
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+
+.container{
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    background-color: #f4f4f4;
+    padding: 0;
+}
+
+.section-left{
+    width: 50%;
+    float: left;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.section-right{
+    width: 50%;
+    float: right;
+    margin-top: 1em;
+    margin-right: 1em;
+
+}
+
+.section-right button{
+    width: 50%;
+    float: right;
+}
+
+.link-container{
+
+    width: 90%;
+    max-height: 40%;
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+.link-container button{
+    margin-top: 2%;
+}
+.link-container h2{
+
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: normal;
+
+}
+
+.link-section input{
+    display: block;
+    width: 70%;
+    height: 33px;
+    margin: 10px auto;
+}
+
+.button {
+    width: 30%;
+    height: 33px;
+    background-color: #38adf5;
+    text-align: center;
+    display: block;
+    color: white;
+    border-radius: 20px;
+    padding: .5em;
+    text-decoration: none;
+    margin: 5% auto 7%;
+  }
+
+  #cardtype{
+    
+      text-align: center;
+      width: 25%;
+      height: 39px;
+  }
+
+@media screen and (min-width: 768px){
+    
+    html, body {
+        
+    background-color: white;
+    }
+
+    .container{
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        background-color: white;
+        padding: 0;
+    }
+
+
+    .section-left{
+        width: 25%;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+
+    .section-right{
+        width: 25%;
+        float: right;
+        margin: 0;
+        padding: 0;
+    }
+
+    .link-section{
+       width: 50%;
+       text-align: center;
+    }
+
+    .section-right button{
+        width: 50%;
+        float: right;
+
+    }
+
+
+    .link-container{
+        width: 50%;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+
+    }
+
+    .link-container h2{
+        font-size: 1.55rem;
+        text-align: center;
+        font-weight: normal;
+
+    }
+
+    .button {
+        width: 50%;
+        height: 40px;
+        background-color: #38adf5;
+        text-align: center;
+        display: block;
+        color: white;
+        border-radius: 20px;
+        padding: .5em;
+        text-decoration: none;
+        margin: 3% auto 7%;
+      }
+
+    .link-section input{
+        display: block;
+        width: 50%;
+        height: 33px;
+        margin: 15px auto;
+
+    }
+}

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Requests</title>
+  <link rel="stylesheet" href="../css/request.css">
+</head>
+<body>
+  
+  <div class="container">
+    <header>
+      <nav>
+        <a href="#" class="no-desktop">
+          <img src="../images/iconfinder_th-menu-outline_216423.png" alt="menu" class="menu" id="menu">
+        </a>
+
+          <ul class="show-desktop no-mobile" id="nav">
+          <li id='exit' class="exit-btn no-desktop"><img src="../images/cancel.svg" alt="exit menu"></li>
+          <li><a href="/myaccount/mypage">Home</a></li>
+          <li><a href="/myaccount/sendmoney">Send money</a></li>
+          <li><a href="/myaccount/receivemoney">Receive money</a></li>
+          <li><a href="/myaccount/history">History</a></li>
+          <li><a href="/logout">Exit</a></li>
+          </ul>
+      </nav>
+      <img src="../images/logo.png" alt="Logo sito" class="logo-top">
+      <a href="/myaccount/profile" class="settings-wheel">
+          <img src="../images/settings-wheel-icon-13.jpg" alt="menu" class="menu" id="menu">
+        </a>
+      
+    </header>
+
+  </div>
+
+
+  <div class="main-container">
+    <div class="container">
+      <h2>Requests</h2>
+    <div class="blocks">
+    <div class="first-column">
+    <div class="requests">
+        <h3>My requests</h3>
+        <div class="table-my-requests" style="overflow: auto; height: 70%;">
+                <table style="width: 100%; font-size: 0.9em;">
+                    <thead><tr><th></th>
+                         <th></th>
+                         <th></th>
+                         <th></th>
+                         <th></th></tr>
+                    </thead>
+                  <tbody >
+                    <p style="visibility: <%= testo %>;"><%= descrizionenull %></p>
+                    <form method="POST" action="/requests/cancel" autocomplete="off" name="cancelForm">
+                    <% for(var i=0; i < resultstra[0].length; i++) {%>
+                      <% if(resultstra[0][i].descrizione == "Requested money") {%>
+                      <tr><td><%= resultstra[0][i].data.toString().substr(4, 12) %></td>
+                      <td><%= resultstra[0][i].ref_email2 %></td>
+                      <td><%= resultstra[0][i].descrizione %></td>
+                      <td><%= resultstra[0][i].ammontare.toFixed(2) %> €</td>
+                      <td> Pending...</td></tr>
+                      <tr></tr>
+                      <tr></tr>
+                      <tr></tr>
+                      <tr></tr>
+                      <tr></tr>
+                      <tr></tr>
+                      <tr></tr>
+                      <%} 
+                      else {%>
+                      <tr><td><%= resultstra[0][i].data.toString().substr(4, 12) %></td>
+                        <td><%= resultstra[0][i].ref_email2 %></td>
+                        <td><%= resultstra[0][i].descrizione %></td>
+                        <td><%= resultstra[0][i].ammontare.toFixed(2) %> €</td>
+                        <td> Cancel<input type="checkbox" name="checkboxCancel" value="<%= resultstra[0][i].id %>" id="checkboxCancel" class="button" onclick="modalfunction()"></td></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <% } %>
+                      <% } %>
+                    </form>
+                  </tbody>
+                </table>
+              </div>
+      </div>
+    </div>
+    <div class="second-column">
+    <div class="users-request">
+        <h3>Other users requests</h3>
+        <div class="table-users-request" style="overflow: auto; height: 70%;">
+                <table style="width: 100%; font-size: 0.9em;">
+                    <thead><tr><th></th>
+                         <th></th>
+                         <th></th>
+                         <th></th>
+                         <th style="display: <%= confirm %>">Confirm?</th></tr>
+                    </thead>
+                  <tbody >
+                    <p style="visibility: <%= testo2 %>;"><%= descrizionenull2 %></p>
+                    <form method="POST" action="/requests/yes" autocomplete="off" name="myform">
+                    <% for(var i=0; i < resultstra[1].length; i++) {%>
+                      <tr><td><%= resultstra[1][i].data.toString().substr(4, 12) %></td>
+                      <td><%= resultstra[1][i].ref_email1 %></td>
+                      <td><%= resultstra[1][i].descrizione %></td>
+                      <td><%= resultstra[1][i].ammontare.toFixed(2) %> €</td>
+                      <td>Yes: <input type="checkbox" value="<%= resultstra[1][i].id %>" name="idd" id="yesPressed" onclick="yesPress()"> No: <input type="checkbox" name="no" onclick="noPress()" id="noPressed"  value="<%= resultstra[1][i].id %>" ></td>
+                      </tr>
+                      <tr></tr>
+                      <tr></tr>
+                      <tr></tr>
+                      <tr></tr>
+                      <tr></tr>
+                      <tr></tr>
+                      <tr></tr>
+                      
+                      <% } %>
+                      
+                  </tbody>
+                </table>
+              </div>
+    </div>
+      </div>
+        
+        </div>
+    </div>
+  </div>
+
+	<div id="myModal" class="modal">
+
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Select your payament method</h2>
+              </div>
+              <div class="modal-body">
+                
+                    <select id="selection" class= "selection" name="selection">
+                            <% for(var i=0; i<cart.length; i++) {%>
+                              <option value="<%= cart[i] %>"><%= cart[i] %></option>
+                              <% } %>
+                              <option id="saldo" value="saldo" >Account balance</option>
+                            </select>
+                        <button type="submit" id="yesbutton" class="button" >Send</button>  
+                  </form>
+              </div>
+            </div>
+          
+    </div>
+
+    <div id="myModal2" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span id="span2" class="close">&times;</span>
+          <h2>Are you sure?</h2>
+        </div>
+        <div class="modal-body">
+            
+                  <button type="submit" class="button" id="submitForm">Yes</button>
+                  <button type="button" id="nobutton" class="button">No</button>  
+            
+        </div>
+      </div> 
+</div>
+
+<div id="myModalCancel" class="modal">
+
+  <div class="modal-content">
+    <div class="modal-header">
+      <span id="span3" class="close" onclick="nomodalfunction()">&times;</span>
+      <h2>Are you sure?</h2>
+    </div>
+    <div class="modal-body">
+        
+              <button type="submit" class="button" id="yesCancel">Yes</button>
+              <button type="button" id="nobuttoncancel" class="button" onclick="nomodalfunction()">No</button>  
+        
+    </div>
+  </div> 
+</div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="container">
+        <img src="../images/logo.png" alt="Logo sito" class="logo">
+        <dl>
+         <dt>Autori:</dt>
+         <dd>Kevin Cusano</dd>
+         <dd>Vincenzo Di Marco</dd>
+        </dl>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+
+    var menu = document.getElementById('menu');
+    var nav = document.getElementById('nav');
+    var exit = document.getElementById('exit');
+
+    menu.addEventListener('click', function(e){
+      nav.classList.toggle('no-mobile');
+      e.preventDefault();
+    });
+
+    exit.addEventListener('click', function(e){
+      nav.classList.add('no-mobile');
+      e.preventDefault();
+    });
+
+    var modal = document.getElementById("myModal");
+
+    var btn = document.getElementById("myBtn");
+
+    var span = document.getElementsByClassName("close");
+
+    var yesPressed = document.getElementsByName("idd");
+    
+    var no = document.getElementsByName("no");
+    
+    var cancelButton = document.getElementById('cancelButton')
+    
+    var modalno = document.getElementById("myModal2");
+
+    var modalcancel = document.getElementById("myModalCancel");
+
+    var noButtonCancel = document.getElementById("nobuttoncancel");
+
+    var submitForm = document.getElementById("submitForm");
+
+    var yesCancel = document.getElementById("yesCancel");
+
+    var checkboxCancel = document.getElementsByName("checkboxCancel");
+    
+    
+
+    function yesPress(){
+    modal.style.display = "block";
+    for(var i=0; i<yesPressed.length; i++){
+          if(yesPressed[i].checked){
+            document.myform.action ="/requests/yes";
+           }
+        }
+    }
+
+    submitForm.onclick = function(){
+      document.myform.submit();
+    }
+
+    yesCancel.onclick = function(){
+      document.cancelForm.submit();
+    }
+
+    function noPress(){
+    modalno.style.display = "block";
+    for(var i=0; i<no.length; i++){
+          if(no[i].checked){
+            document.myform.action ="/requests/no";
+           }
+        }
+    }
+
+
+    span[0].onclick = function() {
+    modal.style.display = "none";
+    for(var i=0; i<yesPressed.length; i++){
+          if(yesPressed[i].checked){
+            yesPressed[i].checked = false;
+           }
+        }
+    }
+    
+    span[1].onclick = function() {
+    modalno.style.display = "none";
+    for(var i=0; i<no.length; i++){
+          if(no[i].checked){
+            no[i].checked = false;
+           }
+        }
+    }
+
+    span[2].onclick = function(){
+      modalcancel.style.display = "none";
+      for(var i=0; i<checkboxCancel.length; i++){
+          if(checkboxCancel[i].checked){
+            checkboxCancel[i].checked = false;
+           }
+        }
+    }
+
+    window.onclick = function(event) {
+    if (event.target == modal || event.target == modalno || event.target == modalcancel) {
+        modal.style.display = "none";
+        modalno.style.display= "none";
+        modalcancel.style.display="none";
+        for(var i=0; i<yesPressed.length; i++){
+          if(yesPressed[i].checked){
+            yesPressed[i].checked = false;
+           }
+           if(no[i].checked){
+            no[i].checked = false;
+           }
+        }
+        for(var i=0; i<checkboxCancel.length; i++){
+          if(checkboxCancel[i].checked){
+            checkboxCancel[i].checked = false;
+           }
+        
+        }
+    }
+  }
+
+    function checkedFalse(){
+      this.checked = false;
+    }
+
+    nobutton.onclick = function(){
+      modalno.style.display = "none";
+      for(var i=0; i<no.length; i++){
+          if(no[i].checked){
+            no[i].checked = false;
+           }
+        }
+    }
+
+    noButtonCancel.onclick = function(){
+      modalcancel.style.display = "none";
+      for(var i=0; i<checkboxCancel.length; i++){
+          if(checkboxCancel[i].checked){
+            checkboxCancel[i].checked = false;
+           }
+        
+        }
+    }
+
+     function nomodalfunction(){
+      modalcancel.style.display = "none";
+    }
+
+    function modalfunction(){
+      modalcancel.style.display = "block";
+    }
+
+  </script>
+</body>
+</html>

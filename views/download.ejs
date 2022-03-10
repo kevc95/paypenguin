@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download</title>
+  <link rel="stylesheet" href="../css/download.css">
+  <link href="https://fonts.googleapis.com/css?family=Lexend+Peta&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <div class="container">
+        <header>
+          <nav>
+            <a href="#" class="no-desktop">
+              <img src="../images/iconfinder_th-menu-outline_216423.png" alt="menu" class="menu" id="menu">
+            </a>
+              <ul class="show-desktop no-mobile" id="nav">
+                  <li id='exit' class="exit-btn no-desktop"><img src="../images/cancel.svg" alt="exit menu"></li>
+                  <li><a href="/myaccount/mypage">Home</a></li>
+                  <li><a href="/myaccount/sendmoney">Send money</a></li>
+                  <li><a href="/myaccount/receivemoney">Receive money</a></li>
+                  <li><a href="/myaccount/history">History</a></li>
+                  <li><a href="/logout">Exit</a></li>
+            </ul>
+          </nav>
+          <img src="../images/logo.png" alt="Logo sito" class="logo logo-top">
+          <a href="/myaccount/profile" class="settings-wheel"><img src="../images/settings-wheel-icon-13.jpg" alt="menu" class="menu"></a>
+        </header>
+      </div>    
+    
+      <div class="main-container">
+        <h1>Download your monthly statement</h1>
+        
+        <div style="height: 200px;">
+        <form class="content" method="POST" action="/myaccount/sendpdf" id="download">
+          <div style="display: flex; text-align: center; margin-top: 5%;">
+                    <p style="visibility: <%= testo %>; margin: auto; margin-right: 5px;"><%= descrizionenull %></p>
+                    <select style="height: 23px; margin:  auto; margin-left: 5px; margin-right: 5px;" class="selection" name="selection" id="selection" onchange="formFunction()">
+                    
+                      <% for(var i=0; i < date.length; i++) {%>
+                      <option value= "<%= date[i] %>"><%= text[i] %></option>
+                      <% } %>
+                    </select>
+                    
+              <p style="margin: auto; margin-left: 5px;">Email: <input type="checkbox" id="email" name="email" onchange="document.getElementById('send').disabled = !this.checked;"> or  <a href="#" onclick="downloadpdf(); this.onclick=null;"> Download now</a> </p>
+            </div>
+            <button type="submit" id="send" class="button" disabled="disabled" name="downlaod" >Send</button>
+          </form>
+        </div>
+        <p style="width: 80%; margin: auto;">Select "Download now" to download your pdf locally.</p>
+        </div>
+          
+        
+    
+
+
+    
+    <footer>
+        <div class="footer-container">
+          <div class="container-bottom">
+            <img src="../images/logo.png" alt="Logo sito" class="logo">
+            <dl>
+             <dt>Autori:</dt>
+             <dd>Kevin Cusano</dd>
+             <dd>Vincenzo Di Marco</dd>
+            </dl>
+    
+          </div>
+    
+        </div>
+      </footer>
+    
+      <script>
+    
+        var menu = document.getElementById('menu');
+        var nav = document.getElementById('nav');
+        var exit = document.getElementById('exit');
+    
+        menu.addEventListener('click', function(e){
+          nav.classList.toggle('no-mobile');
+          e.preventDefault();
+        });
+    
+        exit.addEventListener('click', function(e){
+          nav.classList.add('no-mobile');
+          e.preventDefault();
+        });
+
+        function downloadpdf(){
+          var x = document.getElementById("selection").value;
+          var form = document.createElement("form");
+          var element1 = document.createElement("input"); 
+
+          form.method = "POST";
+          form.action = "/myaccount/downloadnow";   
+
+          element1.value=x;
+          element1.name="range";
+          form.appendChild(element1);  
+
+          document.body.appendChild(form);
+
+          form.submit();
+          form.style.display = "none";  
+        }
+
+
+
+      </script>
+    </body>
+    </html>
+

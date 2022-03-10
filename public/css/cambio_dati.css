@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css?family=Lexend+Giga&display=swap');
+
+html,body {
+    
+    background-color: #f4f4f4;
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+
+.container{
+    height: auto;
+    min-height: 100%;
+    margin: 0 auto;
+    display: flex;
+    padding: 0;
+}
+
+.section-left{
+    background-color: #f4f4f4;
+    width: 50%;
+    float: left;
+}
+
+.logo{
+    align-self: center;
+    height: 70px;
+}
+
+.section-right{
+    background-color: #f4f4f4;
+    width: 50%;
+    float: right;
+
+}
+
+.section-right button{
+    width: 50%;
+    float: right;
+}
+
+.cambio_dati-container{
+    
+    width: 90%;
+    max-height: 40%;
+    text-align: center;
+    position: absolute;
+    z-index: 0;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.cambio_dati-container h2{
+
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.cambio_dati-section input{
+    display: block;
+    width: 100%;
+    height: 33px;
+    margin: 10px auto;
+}
+
+select{
+    display: block;
+    width: 50%;
+    height: 33px;
+    margin: 10px auto;
+}
+
+.button {
+    width: 30%;
+    height: 33px;
+    background-color: #38adf5;
+    text-align: center;
+    display: block;
+    color: white;
+    border-radius: 20px;
+    padding: .5em;
+    text-decoration: none;
+    margin: 5% auto 7%;
+  }
+
+@media screen and (min-width: 768px){
+    
+    html, body{
+        background-color: white;
+    }
+
+    .container{
+        margin: 0 auto;
+        display: flex;
+        background-color: white;
+        padding: 0;
+    }
+
+
+    .section-left{
+        width: 25%;
+        background-color: white;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+
+    .section-right{
+        width: 25%;
+        background-color: white;
+        float: right;
+        margin: 0;
+        padding: 0;
+    }
+
+    .cambio_dati-section{
+       width: 50%;
+       text-align: center;
+    }
+
+    .section-right button{
+        width: 50%;
+        float: right;
+
+    }
+
+
+    .cambio_dati-container{
+        width: 50%;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+
+    }
+
+    .cambio_dati-container h2{
+        font-size: 1.55rem;
+        text-align: center;
+        font-weight: bold;
+
+    }
+
+    .button {
+        width: 50%;
+        height: 30px;
+        background-color: #38adf5;
+        text-align: center;
+        display: block;
+        color: white;
+        border-radius: 20px;
+        padding: .5em;
+        text-decoration: none;
+        margin: 3% auto 7%;
+      }
+
+    .cambio_dati-section input{
+        display: block;
+        width: 50%;
+        height: 33px;
+        margin: 15px auto;
+
+    }
+    
+ 
+}

@@ -1,0 +1,403 @@
+
+
+body, html {
+    height: auto;
+    min-height: 100%;
+    margin: 0;
+    font-family: 'Lexend Peta', sans-serif;
+    background-color: #f2f2f2;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+}
+
+
+
+.logo {
+    
+    align-self: center;
+    height: 70px;
+  }
+
+  
+  
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+
+  
+  header{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    background: #38adf5;
+    justify-content: space-between;
+    margin-bottom: 0;
+    
+  }
+ 
+  .no-mobile{
+    display: none;
+  }
+
+  .no-desktop{
+      margin-left: 5px;
+  }
+  
+  .settings-wheel{
+      margin-right: 5px;
+  }
+  
+  .menu{
+    width: 35px;
+    margin-top: 45%
+  }
+  
+  img{
+    
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+
+  
+  nav ul {
+    
+    overflow: hidden;
+    position: fixed;
+    width: 40%;
+    top: 0;
+    left: 0;
+    text-align: left;
+    background: #A4A4A4;
+    height: 100%;
+    z-index: 7;
+    padding-top: 3em;
+    
+  
+  }
+  
+  
+  nav ul li a{
+    color: black;
+    text-decoration: none;
+    display: block;
+    width: 70%;
+    padding: 1em 2em;
+    background-color: #A4A4A4;
+    border: #d3d3d3;
+    transition: 0.3s;
+    
+  }
+  
+  nav ul li a:hover{
+    background-color: #E1E1E1;
+    color:white;
+  }
+  
+  .exit-btn{
+    text-align: right;
+    padding: 0 1.4em;
+  
+  }
+  
+  .exit-btn img{
+    
+    cursor: pointer;
+    width: 15px;
+  }
+
+  .central-section{
+    margin: 30px auto 70px auto;
+    position: relative;
+     height: 35%;
+     width: 65%;
+     background-color: white;
+     padding: 10px;
+     
+ }
+
+ .container-body{
+  min-height: calc(100vh - 300px);
+
+  text-align: center;
+}
+ 
+ .upper-side{
+     display: flex;
+     width: 100%;
+     height: 20%;
+     justify-content: space-between; 
+     
+ 
+ }
+ 
+ #left{
+     margin-left: 20px;
+    
+ }
+ 
+ #right{
+     margin-right: 20px;
+ }
+ 
+ 
+ 
+ .lower-side{
+     
+     width: 100%;
+     height: 80%;
+     margin-top: 10px;
+    
+ }
+
+
+
+.lower-side input{
+    display: flex;
+    height: 28px;
+    width: 50%;
+    margin: 0 auto;
+
+}
+
+form{
+  height: 100%;
+}
+
+
+
+   .button {
+     display: block;
+     width: 60px;
+     height: 22px;
+     background-color: #38adf5;
+     text-align: center;
+     color: white;
+     border-radius: 20px;
+     padding: .2em;
+     text-decoration: none;
+     margin: 20px auto 5px;
+   }
+
+
+
+    .text{
+        text-align: left;
+        font-size: 80%;
+    }
+
+    .footer-container{
+              
+      bottom: 0;
+      width: 100%;
+      background: #3D444A;
+      color: white;
+      padding: 3em 0;
+      text-align: center;
+    }
+
+    
+    
+    .footer-container dl{
+      display: inline-block;
+     margin: 0 auto;
+    
+    }
+    .footer-container dd{
+      display: inline-block;
+        margin-right: 15px;
+        margin-top: 5%;
+    }
+    
+    
+
+ 
+
+
+    @media screen and (min-width: 1000px){
+        body{
+            background-color: white;
+        }
+
+        nav ul {
+            position: absolute;
+            width: auto;
+            height: auto;
+            display: flex;
+            padding-top: 0;
+            left: 5%;
+            background: none;
+            
+          }
+          a{
+          text-shadow: 1px 1px rgb(27, 27, 27);
+          font-weight: bold;
+          }
+      
+          .logo-top{
+            position: absolute; 
+            float:left;
+            margin-top: 0;
+          }
+          
+        
+          .no-desktop{
+            display: none;
+        
+          }
+          
+          .show-desktop {
+            margin: 0 auto 13% auto;
+            display: flex;
+            
+          }
+        
+        
+      
+        
+          .container{
+            width: 100%;
+          }
+      
+          .blocks{
+            
+            width: 100%;
+            display: flex;
+            
+          }
+        
+               
+        
+          nav ul li {
+            float: center;
+            white-space: nowrap;
+          }
+        
+          nav ul li a{
+            
+            color: white;
+            background-color: inherit;
+            text-align: left;
+            padding: 1em 2em;
+            text-shadow: 2px 2px rgb(27, 27, 27);
+            font-weight: bold;
+            
+          }
+        
+          nav ul li a:hover {
+            background-color: inherit;
+          }
+        
+         
+          
+          
+          .settings-wheel{
+            margin-right: 15px;
+          }
+
+          .container-body{
+            min-height: calc(100vh - 300px);
+
+            text-align: center;
+          }
+      
+      
+          .central-section{
+            margin: 5% auto;
+            height: 40%;
+            width: 35%;
+            background-color: #f2f2f2;
+            padding: 10px;
+            
+        }
+        
+        .upper-side{
+            display: flex;
+            width: 100%;
+            height: 20%;
+            justify-content: space-between;
+            
+        
+        }
+        
+        #left{
+            margin-left: 20px;
+        }
+        
+        #right{
+            margin-right: 20px;
+            
+        }
+        
+        
+        
+        .lower-side{
+            display: block;
+            width: 100%;
+            height: 80%;
+            margin-top: 10px;
+            justify-content: center;
+            
+        }
+        
+        .lower-side input{
+          display: flex;
+          height: 33px;
+          width: 50%;
+          margin: 0 auto;
+      
+      }
+        
+        
+          .button {
+          /*  position: absolute;*/
+          display: block;
+            width: 120px;
+            height: 25px;
+            background-color: #38adf5;
+            text-align: center;
+            color: white;
+            border-radius: 20px;
+            padding: .2em;
+            text-decoration: none;
+            margin: 15px auto;
+            
+            
+          }
+        
+          form{
+              width: 100%;
+          }
+        
+          .selection{
+             /* position: absolute;*/
+             display: flex;
+              margin-top: 30px;
+              right: 20px;
+          }
+        
+        
+        
+            #e-mail{
+               /* position: absolute;*/
+                margin-top: 10px;
+                
+            }
+        
+            #amount{
+               /* position: absolute;*/
+                margin-top: 10px;      
+            }
+        
+            .text{
+                text-align: left;
+                font-size: 80%;
+            }
+
+
+
+    }

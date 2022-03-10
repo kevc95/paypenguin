@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="background">
+  <div class="container">
+    <header>
+      <nav>
+        <a href="#" class="no-desktop">
+          <img src="../images/iconfinder_th-menu-outline_216423.png" alt="menu" class="menu" id="menu">
+        </a>
+
+          <ul class="show-desktop no-mobile" id="nav">
+          <li id='exit' class="exit-btn no-desktop"><img src="../images/cancel.svg" alt="exit menu"></li>
+          <li><a href="/login">Login</a></li>
+          <li><a href="signup.html">Sign up</a></li>
+          <li><a href="#">Contacs</a></li>
+
+        </ul>
+      </nav>
+      <img src="../images/logo.png" alt="Logo sito" class="logo">
+    </header>
+    <section>
+      <h1>Give yourself a simpler way to pay, make it easy, safe and fast with us.</h1>
+    </section>
+
+  </div>
+</div>
+
+  <div class="new-container">
+    <div class="container">
+	
+      <ul>
+        <li>
+          <img src="../images/Wallet_Flat_Icon.svg" alt="Icona portafoglio">
+          <h3>Wallet</h3>
+          <p>Associate your credit cards, prepaid cards or your bank account and start paying securely</p>
+        </li>
+        <li>
+          
+          <img src="../images/people.svg" alt="Icona persone">
+          <h3>Transitions</h3>
+          <p>Perform transactions with registered or external users with your preferred payament method</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <h3>Haven't signed up yet?</h3>
+    <a href="signup.html" class="ca">Click here</a>
+
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="container">
+        <img src="../images/logo.png" alt="Logo sito" class="logo">
+        <dl>
+         <dt>Autori:</dt>
+         <dd>Kevin Cusano</dd>
+         <dd>Vincenzo Di Marco</dd>
+        </dl>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+
+    var menu = document.getElementById('menu');
+    var nav = document.getElementById('nav');
+    var exit = document.getElementById('exit');
+
+    menu.addEventListener('click', function(e){
+      nav.classList.toggle('no-mobile');
+      e.preventDefault();
+    });
+
+    exit.addEventListener('click', function(e){
+      nav.classList.add('no-mobile');
+      e.preventDefault();
+    });
+
+  </script>
+</body>
+</html>

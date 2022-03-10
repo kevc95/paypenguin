@@ -1,0 +1,273 @@
+
+
+html,body {
+    
+    height: 100%;
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+}
+
+.logo {
+    
+  align-self: center;
+  height: 70px;
+}
+
+h1{
+    font-size: 1.4em;
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+p{
+  font-size: 0.9em;
+}
+
+
+header{
+  height: 70px;
+  width: 100%;
+  display: flex;
+  background: #38adf5;
+  justify-content: space-between;
+  margin-bottom: 0;
+  
+}
+
+.no-mobile{
+  display: none;
+}
+
+.no-desktop{
+    margin-left: 5px;
+}
+
+.settings-wheel{
+    margin-right: 5px;
+}
+
+.menu{
+  width: 35px;
+  margin-top: 45%
+}
+
+img{
+  
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+nav ul {
+  
+  overflow: hidden;
+    position: fixed;
+    width: 40%;
+    top: 0;
+    left: 0;
+    text-align: left;
+    background: #A4A4A4;
+    height: 100%;
+    z-index: 7;
+    padding-top: 3em;
+  
+
+}
+
+
+nav ul li a{
+  overflow: hidden;
+    White-space: nowrap;
+    color: black;
+    text-decoration: none;
+    display: block;
+    width: 70%;
+    padding: 1em 2em;
+    background-color: #A4A4A4;
+    border: #d3d3d3;
+    transition: 0.3s;
+  
+}
+
+nav ul li a:hover{
+  background-color: #E1E1E1;
+  color:white;
+}
+
+.exit-btn{
+  text-align: right;
+  padding: 0 1.4em;
+
+}
+
+.exit-btn img{
+  
+  cursor: pointer;
+  width: 15px;
+}
+
+.main-container{
+    display: block;
+    width: 100%;
+    text-align: center;
+    min-height: calc(100vh - 250px);
+}
+
+.content{
+    width: 80%;
+    background-color: #f2f2f2;
+    align-content: center;
+    height: 200px;
+    margin: auto;
+    margin-top: 8%;
+}
+
+.container{
+    width: 100%;
+}
+
+
+.button {
+    min-width: 100px;
+    max-width: 150px;
+    width: 30%;
+    height: 33px;
+    background-color: #38adf5;
+    text-align: center;
+    display: block;
+    color: white;
+    border-radius: 20px;
+    padding: .5em;
+    text-decoration: none;
+    margin: 5% auto 7%;
+  }
+
+
+.table{
+    margin: auto;
+    width: 80%;
+    height: 80%;
+    overflow: auto;
+}
+
+
+.footer-container{
+  width: 100%;
+  background: #3D444A;
+  color: white;
+  padding: 3em 0;
+  text-align: center;
+}
+
+
+
+.footer-container dl{
+  display: inline-block;
+ margin: 0 auto;
+
+}
+.footer-container dd{
+  display: inline-block;
+    margin-right: 15px;
+    margin-top: 5%;
+}
+
+.container-bottom{
+  width: 100%;
+}
+
+
+
+
+
+  @media screen and (min-width: 1000px){  
+
+    nav ul {
+      position: absolute;
+      width: auto;
+      height: auto;
+      display: flex;
+      padding-top: 0;
+      left: 5%;
+      background: none;
+      z-index: 0;
+      
+    }
+    a{
+    text-shadow: 1px 1px rgb(27, 27, 27);
+    font-weight: bold;
+    }
+
+    
+
+    .logo-top{
+      position: absolute; 
+      float:left;
+      margin-top: 0;
+    }
+    
+  
+    .no-desktop{
+      display: none;
+  
+    }
+    
+    .show-desktop {
+      margin: 0 auto 13% auto;
+      display: flex;
+      
+    }
+     
+    .button{
+        max-width: 200px;
+        
+    }
+    h1{
+        font-size: 1.8em;
+    }
+   
+    nav ul li {
+      float: center;
+      white-space: nowrap;
+    }
+  
+    nav ul li a{
+      
+      color: white;
+      background-color: inherit;
+      text-align: left;
+      padding: 1em 2em;
+      text-shadow: 2px 2px rgb(27, 27, 27);
+      font-weight: bold;
+      
+    }
+  
+    nav ul li a:hover {
+      background-color: inherit;
+    }
+  
+   
+    
+    
+    .settings-wheel{
+      margin-right: 15px;
+    }
+
+    .content{
+      max-width: 600px;
+        width: 70%;
+        height: 95%;
+    }
+
+
+  }
+ 
+
+
+ 
